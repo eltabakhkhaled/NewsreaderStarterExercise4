@@ -22,11 +22,11 @@ public class NewsAPIExample {
                 .setSourceCategory(Category.health) // example of how to use enums
                 .createNewsApi();
 
-            NewsResponse newsResponse = newsApi.getNews();
-            if(newsResponse != null){
-                List<Article> articles = newsResponse.getArticles();
-                articles.forEach(article -> System.out.println(article.toString()));
-            }
+        NewsResponse newsResponse = newsApi.getNews();
+        if(newsResponse != null){
+            List<Article> articles = newsResponse.getArticles();
+            articles.forEach(article -> System.out.println(article.toString()));
+        }
 
         newsApi = new NewsApiBuilder()
                 .setApiKey(APIKEY)
@@ -36,7 +36,7 @@ public class NewsAPIExample {
                 .setExcludeDomains("Lifehacker.com")
                 .createNewsApi();
 
-            newsResponse = newsApi.getNews();
+        newsResponse = newsApi.getNews();
 
         if(newsResponse != null){
             List<Article> articles = newsResponse.getArticles();

@@ -9,3 +9,4 @@ public class NewsAPIException extends Exception{
     }
 
 }
+

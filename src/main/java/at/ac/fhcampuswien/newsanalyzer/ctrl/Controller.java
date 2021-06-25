@@ -34,7 +34,7 @@ public class Controller {
 		if(!newsResponse.getStatus().equals("ok")){
 			throw new NewsAPIException("News Response returned status " + newsResponse.getStatus());
 		}
-		
+
 		return newsResponse.getArticles();
 	}
 
@@ -83,5 +83,12 @@ public class Controller {
 				.max(Comparator.comparingInt(o -> o.getValue().size()))
 				.map(stringListEntry -> stringListEntry.getKey() + " " + stringListEntry.getValue().size())
 				.orElseThrow();
+	}
+	public List<String> getURLs () throws NewsAPIException {
+		if(articles == null)
+			throw new NewsAPIException("Load data first");
+		return articles.stream()
+				.map(Article::getUrl)
+				.collect(Collectors.toList());
 	}
 }
